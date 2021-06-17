@@ -1,0 +1,192 @@
+CREATE DATABASE "SiGames"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Portuguese_Brazil.1252'
+    LC_CTYPE = 'Portuguese_Brazil.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+CREATE TABLE public.estado
+(
+    id_estado integer NOT NULL DEFAULT nextval('estado_id_estado_seq'::regclass),
+    nome character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    sigla character(2) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT pk_id_estado PRIMARY KEY (id_estado)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.estado
+    OWNER to postgres;
+
+
+CREATE TABLE public.cidade
+(
+    id_cidade integer NOT NULL DEFAULT nextval('cidade_id_cidade_seq'::regclass),
+    nome character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    cep integer NOT NULL,
+    id_estado integer NOT NULL,
+    CONSTRAINT pk_id_cidade PRIMARY KEY (id_cidade),
+    CONSTRAINT fk_id_estado FOREIGN KEY (id_estado)
+        REFERENCES public.estado (id_estado) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.cidade
+    OWNER to postgres;
+
+CREATE TABLE public.pessoa
+(
+    id_pessoa integer NOT NULL DEFAULT nextval('pessoa_id_pessoa_seq'::regclass),
+    nome character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    data_nasc date NOT NULL,
+    email character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    senha character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    nome_user character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    cpf character varying(12) COLLATE pg_catalog."default" NOT NULL,
+    rua character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    numero_casa integer NOT NULL,
+    bairro character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    situacao character(1) COLLATE pg_catalog."default" NOT NULL,
+    id_cidade integer NOT NULL,
+    CONSTRAINT pk_id_pessoa PRIMARY KEY (id_pessoa),
+    CONSTRAINT fk_id_cidade FOREIGN KEY (id_cidade)
+        REFERENCES public.cidade (id_cidade) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.pessoa
+    OWNER to postgres;
+
+CREATE TABLE public.genero
+(
+    id_genero integer NOT NULL DEFAULT nextval('genero_id_genero_seq'::regclass),
+    nome character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    descricao character varying(800) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT pk_id_genero PRIMARY KEY (id_genero)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.genero
+    OWNER to postgres;
+
+CREATE TABLE public.game
+(
+    id_game integer NOT NULL DEFAULT nextval('game_id_game_seq'::regclass),
+    nome character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    descricao character varying(800) COLLATE pg_catalog."default" NOT NULL,
+    valor character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    situacao character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    id_genero integer NOT NULL,
+    CONSTRAINT pk_id_game PRIMARY KEY (id_game),
+    CONSTRAINT fk_id_genero FOREIGN KEY (id_genero)
+        REFERENCES public.genero (id_genero) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.game
+    OWNER to postgres;
+
+CREATE TABLE public.estoque
+(
+    id_estoque integer NOT NULL DEFAULT nextval('estoque_id_estoque_seq'::regclass),
+    quantidade integer NOT NULL,
+    id_game integer NOT NULL,
+    CONSTRAINT pk_id_estoque PRIMARY KEY (id_estoque),
+    CONSTRAINT fk_id_game FOREIGN KEY (id_game)
+        REFERENCES public.game (id_game) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.estoque
+    OWNER to postgres;
+
+CREATE TABLE public.pedido
+(
+    id_pedido integer NOT NULL DEFAULT nextval('pedido_id_pedido_seq'::regclass),
+    valor_total numeric(10,2) NOT NULL,
+    data date NOT NULL,
+    situacao character(1) COLLATE pg_catalog."default" NOT NULL,
+    id_pessoa integer NOT NULL,
+    id_forma_de_pagamento integer NOT NULL,
+    CONSTRAINT pk_id_pedido PRIMARY KEY (id_pedido),
+    CONSTRAINT fk_id_forma_de_pagamento FOREIGN KEY (id_forma_de_pagamento)
+        REFERENCES public.forma_de_pagamento (id_forma_de_pagamento) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fk_id_pessoa FOREIGN KEY (id_pessoa)
+        REFERENCES public.pessoa (id_pessoa) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.pedido
+    OWNER to postgres;
+
+CREATE TABLE public.games_no_pedido
+(
+    id_pedido integer NOT NULL,
+    id_game integer NOT NULL,
+    quantidade integer NOT NULL,
+    CONSTRAINT fk_id_game FOREIGN KEY (id_game)
+        REFERENCES public.game (id_game) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fk_id_pedido FOREIGN KEY (id_pedido)
+        REFERENCES public.pedido (id_pedido) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.games_no_pedido
+    OWNER to postgres;
+
+CREATE TABLE public.forma_de_pagamento
+(
+    id_forma_de_pagamento integer NOT NULL DEFAULT nextval('forma_de_pagamento_id_forma_de_pagamento_seq'::regclass),
+    nome character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT pk_forma_pagamento PRIMARY KEY (id_forma_de_pagamento)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.forma_de_pagamento
+    OWNER to postgres;
+
+CREATE TABLE public.financeiro
+(
+    id_financeiro integer NOT NULL DEFAULT nextval('financeiro_id_financeiro_seq'::regclass),
+    data_vencimento date NOT NULL,
+    data_pagamento date,
+    valor_pago numeric(10,2) NOT NULL,
+    situacao character(1) COLLATE pg_catalog."default" NOT NULL,
+    id_pedido integer NOT NULL,
+    CONSTRAINT pk_id_financeiro PRIMARY KEY (id_financeiro),
+    CONSTRAINT fk_id_pedido FOREIGN KEY (id_pedido)
+        REFERENCES public.pedido (id_pedido) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.financeiro
+    OWNER to postgres;

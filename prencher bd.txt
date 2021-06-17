@@ -1,0 +1,499 @@
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Arroio Do Meio', '95940000', 1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values
+(Default, 'Aceguá','96445000', 1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Água Santa','99965000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Agudo','96540000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Ajuricaba','98750000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Alecrim','98950000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Alegrete','97542020',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Alegria','98905000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Almirante Tamandaré do Sul','99523000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Alpestre','98480000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Alto Alegre','99430000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Alto Feliz','95773000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Alvorada','94820320',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Amaral Ferrador','96635000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Ametista do Sul','98465000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'André da Rocha','95310000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Anta Gorda','95980000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Antônio Prado','95250000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Arambaré','96178000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Araricá','93880000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Aratiba','99770000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Arroio do Padre','96155000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Arroio do Sal','95585000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Arroio do Tigre','96950000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Arroio dos Ratos','96740000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Arroio Grande','96330000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Arvorezinha','95995000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Augusto Pestana','98740000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Áurea','99835000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Bagé','96400120',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Balneário Pinhal','95599000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Barão','95730000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Barão de Cotegipe','99740000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Barão do Triunfo','96735000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default,'Barra do Guarita','98530000',1);
+ 
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Barra do Quaraí','97538000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Barra do Ribeiro','96790000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Barra do Rio Azul','99795000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Barra Funda','99585000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Barracão','95370000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Barros Cassal','99360000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Benjamin Constant do Sul','99650000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Bento Gonçalves','95700000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Boa Vista das Missões','98335000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Boa Vista do Buricá','98918000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Boa Vista do Cadeado','98118000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Boa Vista do Incra','98120000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Boa Vista do Sul','95727000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Bom Jesus','95290000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Bom Princípio','95765000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Bom Progresso','98575000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Bom Retiro do Sul','95870000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Boqueirão do Leão','95920000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Bossoroca','97850000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Bozano','98733000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Braga','98560000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Brochier','95790000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Butiá','96750000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Caçapava do Sul','96570000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default,'Cacequi','97450000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Cachoeira do Sul','96503490',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Cachoeirinha','94935800',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Cacique Doble','99860000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Caibaté','97930000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Caiçara','9844000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Camaquã','96180000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Camargo','99165000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Cambará do Sul','95480000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Campestre da Serra','95255000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Campina das Missões','98975000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Campinas do Sul','99660000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Campo Bom','93700000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Campo Novo','98570000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Campos Borges','99435000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Candelária','96930000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Cândido Godói','98970000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Candiota','96495000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Canela','95680000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Canguçu','96600000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Canoas','92010010',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Canudos do Vale','95933000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Capão Bonito do Sul','95308000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Capão da Canoa','95555000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Capão do Cipó','97753000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Capão do Leão','96160000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Capela de Santana','95745000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Capitão','95935000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Capivari do Sul','95552000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Caraá','95515000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Carazinho','99500000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Carlos Barbosa','95185000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Carlos Gomes','99825000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Casca','99260000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Caseiros','95315000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Catuípe','98770000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Caxias do Sul','95076630',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Centenário','99838000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Cerrito','96395000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Cerro Branco','96535000',1);
+
+insert into cidade 
+(id_cidade, nome, cep, id_estado)
+values 
+(Default, 'Cerro Grande','98340000',1);

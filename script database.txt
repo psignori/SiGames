@@ -1,0 +1,105 @@
+CREATE DATABASE "SiGames"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Portuguese_Brazil.1252'
+    LC_CTYPE = 'Portuguese_Brazil.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+Create table estado (
+	id_estado serial,
+	nome varchar (150) not null,
+	sigla char (2) not null,
+	CONSTRAINT pk_id_estado PRIMARY KEY (id_estado)
+);
+
+Create table cidade (
+	id_cidade serial,
+	nome varchar (150) not null,
+	cep int not null,
+	id_estado int not null,
+	CONSTRAINT pk_id_cidade PRIMARY KEY (id_cidade),
+	CONSTRAINT fk_id_estado FOREIGN KEY (id_estado) REFERENCES estado
+);
+
+Create table pessoa (
+	id_pessoa serial,
+	nome varchar (150) not null,
+	data_nasc date not null,
+	email varchar (150) not null,
+	senha varchar (50) not null,
+	nome_user varchar (100) not null,
+	cpf varchar (12) not null,
+	rua varchar (100) not null,
+	numero_casa int not null,
+	bairro varchar (100) not null,
+	situacao char (1) not null,
+	id_cidade int not null,
+	CONSTRAINT pk_id_pessoa PRIMARY KEY (id_pessoa),
+	CONSTRAINT fk_id_cidade FOREIGN KEY (id_cidade) REFERENCES cidade
+);
+
+Create table genero (
+	id_genero serial,
+	nome varchar (150) not null,
+	descricao varchar (800) not null,
+	CONSTRAINT pk_id_genero PRIMARY KEY (id_genero)
+);
+
+Create table game (
+	id_game serial,
+	nome varchar (150) not null,
+	descricao varchar (800) not null,
+	valor varchar (10) not null,
+	situacao varchar (1) not null,
+	id_genero int not null,
+	CONSTRAINT pk_id_game PRIMARY KEY (id_game),
+	CONSTRAINT fk_id_genero FOREIGN KEY (id_genero) REFERENCES genero
+);
+
+Create table forma_de_pagamento (
+	id_forma_de_pagamento serial,
+	nome varchar (100) not null,
+	CONSTRAINT pk_forma_pagamento PRIMARY KEY (id_forma_de_pagamento)
+);
+
+Create table pedido (
+	id_pedido serial,
+	valor_total decimal (10,2) not null,
+	data date not null,
+	situacao char (1) not null,
+	id_pessoa int not null,
+	id_forma_de_pagamento int not null,
+	CONSTRAINT pk_id_pedido PRIMARY KEY (id_pedido),
+	CONSTRAINT fk_id_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa ,
+	CONSTRAINT fk_id_forma_de_pagamento FOREIGN KEY (id_forma_de_pagamento) REFERENCES forma_de_pagamento
+);
+
+Create table estoque (
+	id_estoque serial,
+	quantidade int not null,
+	id_game int not null,
+	CONSTRAINT pk_id_estoque PRIMARY KEY (id_estoque),
+	CONSTRAINT fk_id_game FOREIGN KEY (id_game) REFERENCES game
+);
+
+Create table games_no_pedido (
+	id_pedido int not null,
+	id_game int not null,
+	quantidade int not null,
+	CONSTRAINT fk_id_pedido FOREIGN KEY (id_pedido) References pedido,
+	CONSTRAINT fk_id_game FOREIGN KEY (id_game) REFERENCES game
+);
+
+Create table financeiro (
+	id_financeiro serial,
+	data_vencimento date not null,
+	data_pagamento date,
+	valor_pago decimal (10,2) not null,
+	situacao char (1) not null,
+	id_pedido int not null,
+	CONSTRAINT pk_id_financeiro PRIMARY KEY (id_financeiro),
+	CONSTRAINT fk_id_pedido FOREIGN KEY (id_pedido) REFERENCES pedido
+);
+

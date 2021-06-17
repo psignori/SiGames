@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportsPedidos" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2ff9d29a-1f26-4ca9-8a11-8f3190c45760">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SiGames"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="situacao" class="java.lang.String"/>
+	<parameter name="pedido" class="java.lang.Integer"/>
+	<parameter name="paga" class="java.lang.Integer"/>
+	<parameter name="nome" class="java.lang.String"/>
+	<parameter name="dataini" class="java.sql.Date"/>
+	<parameter name="datafim" class="java.sql.Date"/>
+	<queryString>
+		<![CDATA[SELECT p.id_pedido , p.valor_total , p.data , p.situacao , c.nome , f.nome , g.nome , p.quantidade_games
+FROM pedido p, pessoa c, game g, forma_de_pagamento f
+WHERE p.id_pessoa = c.id_pessoa AND p.id_forma_de_pagamento = f.id_forma_de_pagamento AND p.id_game = g.id_game
+AND ((p.situacao = $P{situacao}
+OR p.id_pedido = $P{pedido}
+OR p.id_forma_de_pagamento = $P{paga}
+OR c.nome = $P{nome})
+AND p.data BETWEEN $P{dataini} AND $P{datafim})]]>
+	</queryString>
+	<field name="id_pedido" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_pedido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pedido"/>
+	</field>
+	<field name="valor_total" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pedido"/>
+	</field>
+	<field name="data" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="data"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pedido"/>
+	</field>
+	<field name="situacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="situacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pedido"/>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="COLUMN_6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="forma_de_pagamento"/>
+	</field>
+	<field name="COLUMN_7" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="game"/>
+	</field>
+	<field name="quantidade_games" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="quantidade_games"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pedido"/>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="85">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="105" backcolor="#006699" uuid="db7f3791-196d-4f84-ab3b-381bca7b8138"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="46defa67-e6da-41fa-bf27-45e4fbe40639"/>
+					<textElement>
+						<font fontName="Georgia" size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SiGames]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="70" width="180" height="20" forecolor="#FFFFFF" uuid="0026cc38-cfa5-4661-b9a5-d2d9b04dbb25"/>
+					<textElement textAlignment="Left">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reports Pedidos:]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="c1697d01-1292-44a8-a0ad-fd9fe3a891aa"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="20" height="20" uuid="9f7324c6-2cab-4d32-9133-eb7ab0a90d15">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fccd8b72-f99d-4a9d-9a3a-856d567bd219"/>
+				</reportElement>
+				<text><![CDATA[id   | ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="0" width="100" height="20" uuid="85ad04c1-ac5b-4879-adf4-28d2cdac8e1b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5220cfe-6c5e-41c2-a306-d892e52a98ca"/>
+				</reportElement>
+				<text><![CDATA[game                         | ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="0" width="60" height="20" uuid="ef53feef-06eb-48bc-a1a0-e3ac8992668d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a631d62c-0dfc-4828-9918-e155e52199f9"/>
+				</reportElement>
+				<text><![CDATA[valor_total   | ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="50" height="20" uuid="948777bb-5ac1-41c2-ab0f-5f2efa2d19f7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4c93188-0d02-4650-b5e3-4a6c61687381"/>
+				</reportElement>
+				<text><![CDATA[data         | ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="0" width="60" height="25" uuid="04ead3d3-3cc4-4eb4-b1d3-b59abfc540c6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fb5b4317-00a4-4dcd-8385-c53d719c6d6e"/>
+				</reportElement>
+				<text><![CDATA[situação      | ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="100" height="20" uuid="9263fc7a-f31a-4860-aa52-87116ae03a0c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cadbc974-5ed4-4b9e-8075-2f0a1bb3b830"/>
+				</reportElement>
+				<text><![CDATA[pessoa                      | ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="0" width="70" height="20" uuid="ff39852c-65ee-4f05-baa4-0eb391dea244">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90f6c1d4-dfeb-492e-a863-ecb053e976ba"/>
+				</reportElement>
+				<text><![CDATA[pagamento     |]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="0" width="100" height="20" uuid="46eae15e-019f-486d-91f8-4dfc51605f89">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ba6817c9-34e2-430b-8227-cd5eb3e5f602"/>
+				</reportElement>
+				<text><![CDATA[quantidade_games]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="cb7a089e-3e6b-4f84-8aeb-c8f0e39efad4"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="20" height="18" uuid="abe5dc3b-d57d-41d4-8588-f9dac962bdeb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fccd8b72-f99d-4a9d-9a3a-856d567bd219"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{id_pedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="0" width="100" height="18" uuid="bde02277-634a-4f89-ae42-fe6abb1c93df">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5220cfe-6c5e-41c2-a306-d892e52a98ca"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{COLUMN_7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="60" height="18" uuid="ec5ed9cd-a5c0-4de2-aa81-b2c3c7d4cef0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a631d62c-0dfc-4828-9918-e155e52199f9"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{valor_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="50" height="18" uuid="a5b3e081-5cf5-4058-959f-a32705e0c0f3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4c93188-0d02-4650-b5e3-4a6c61687381"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="60" height="18" uuid="21ee2951-a575-4336-b5b2-486fe755aa74">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fb5b4317-00a4-4dcd-8385-c53d719c6d6e"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{situacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="0" width="100" height="18" uuid="11b2cc32-d0d7-4df7-9990-9095eeedd1b1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cadbc974-5ed4-4b9e-8075-2f0a1bb3b830"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="70" height="18" uuid="3029dcc6-9a00-4fa2-97c2-42c7bc085c8c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90f6c1d4-dfeb-492e-a863-ecb053e976ba"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{COLUMN_6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="100" height="20" uuid="da7d3c0e-4fb0-48f5-8ffb-321dbea51a6b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ba6817c9-34e2-430b-8227-cd5eb3e5f602"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{quantidade_games}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="40">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="1d6b29ee-5953-46b1-8285-992bc6726752"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="f666854c-bd7a-45f2-8563-16c177daf481"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="80" y="4" width="100" height="13" uuid="0bca3771-d701-417b-94c5-220b4062b74c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="4" width="100" height="20" uuid="748600d5-5163-4d46-95e7-6c8b6d39141b"/>
+				<textFieldExpression><![CDATA["Arroio do Meio"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
